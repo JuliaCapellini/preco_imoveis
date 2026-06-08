@@ -6,7 +6,6 @@ import joblib
 # ── Configuração da página ──────────────────────────────────────────────────
 st.set_page_config(
     page_title="Previsão de Preços de Imóveis",
-    page_icon="🏠",
     layout="centered"
 )
 
@@ -18,7 +17,7 @@ def carregar_modelo():
 modelo = carregar_modelo()
 
 # ── Título e descrição ──────────────────────────────────────────────────────
-st.title("🏠 Previsão de Preços de Imóveis")
+st.title("Previsão de Preços de Imóveis")
 st.markdown(
     "Preencha as características do imóvel abaixo e clique em **Prever Preço** "
     "para obter uma estimativa do valor de venda."
@@ -131,7 +130,7 @@ if st.button("🔍 Prever Preço", use_container_width=True, type="primary"):
     preco_real = np.expm1(preco_log)
 
     # ── Exibição do resultado ───────────────────────────────────────────────
-    st.success(f"### 💰 Preço estimado: **$ {preco_real:,.0f}**")
+    st.success(f"### Preço estimado: **$ {preco_real:,.0f}**")
 
     # Interpretação simples
     if preco_real < 100_000:
@@ -146,7 +145,7 @@ if st.button("🔍 Prever Preço", use_container_width=True, type="primary"):
         faixa = "acima de $500.000 — imóvel de luxo."
 
     st.info(
-        f"📊 **Interpretação:** O modelo estima um imóvel {faixa} "
+        f"**Interpretação:** O modelo estima um imóvel {faixa} "
         f"Com base nas características fornecidas (área total de {TotalSF} sq ft, "
         f"qualidade {OverallQual}/10 e {GarageCars} vaga(s) de garagem)."
     )
